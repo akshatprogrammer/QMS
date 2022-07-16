@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method = "POST" class = "contact-form">
+        <input type = "text" class = "name" placeholder = "Enter Name">
+        <input type = "email" class = "email" id="email" placeholder = "Enter Email">
+        <button type = "submit">Submit</button>
+    </form>
+</body>
+
+<script src=
+    "https://smtpjs.com/v3/smtp.js">
+  </script>
+
+<script>
+    const form = document.querySelector(".contact-form");
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    let name = document.querySelector(".name").value;
+    let email = document.querySelector(".email").value;
+  
+    
+
+
+    document.querySelector(".contact-form").reset();
+
+    sendEmail(name, email);
+  })
+  function sendEmail(name, email){
+    Email.send({
+        
+      Host: "smtp.elasticemail.com", 
+      Username: "fakesocial89@gmail.com",
+      Password: "08080949B500D11285079276711A994A8B4E",
+      To: document.getElementById("email").value,
+      From: "fakesocial89@gmail.com",
+      Subject: `${name} Just messaged you from the website form`,
+      Body: `Name: ${name} <br> Email: ${email} <br>`,
+    }).then((success) => {
+     
+      alert("message sent successfully. Please check the spam folder in your mail.");
+    }).catch((error) => {
+        
+      alert("error sending message");
+    })
+  }
+</script>
+
+</html>

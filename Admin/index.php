@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../connection.php";
 ?>
 <!DOCTYPE html>
@@ -111,6 +112,7 @@ if (isset($_POST["submit1"])) {
         <?php
     }
     else{
+        $_SESSION["admin"]=$username;
         ?>
         <script type="text/javascript">
             window.location="demo.php";

@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sufee Admin - HTML5 Admin Template</title>
+    <title>Quiz Organizing System | TechBuzz </title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -50,13 +50,19 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="add_question.php"> <i class="menu-icon fa fa-book"></i>Add and Edit Questions </a>
                     </li>
                     <li>
                         <a href="add_exam.php"> <i class="menu-icon fa fa-pencil"></i>Add and Edit Exam </a>
                     </li>
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-close"></i>Logout </a>
+                        <a href="display_result.php"> <i class="menu-icon fa fa-pencil"></i>View Leaderboard </a>
+                    </li>
+                    <li>
+                        <a href="share.php"> <i class="menu-icon fa fa-share"></i>Share Quiz</a>
+                    </li>
+                    <li>
+                        <a href="logout.php"> <i class="menu-icon fa fa-close"></i>Logout </a>
                     </li>
     </aside><!-- /#left-panel -->
 

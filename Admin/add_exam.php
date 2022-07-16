@@ -1,6 +1,14 @@
 <?php
+session_start();
 include "header.php";
 include "../connection.php";
+if(!isset($_SESSION["admin"])){
+    ?>
+    <script>
+        window.location = "index.php";
+    </script>
+    <?php
+}
 ?>
 <div id="right-panel" class="right-panel">
 
@@ -28,8 +36,8 @@ include "../connection.php";
                                 <div class="card">
                                     <div class="card-header"><strong>Add Exam</strong></div>
                                     <div class="card-body card-block">
-                                        <div class="form-group"><label for="category" class=" form-control-label">Category</label><input type="text" id="company" name="category" placeholder="Enter exam category" class="form-control"></div>
-                                        <div class="form-group"><label for="time" class=" form-control-label">Time (in Minutes)</label><input type="text" id="vat" placeholder="Enter Time"  name = "time" class="form-control"></div>
+                                        <div class="form-group"><label for="category" class=" form-control-label">Category</label><input type="text" id="company" name="category" placeholder="Enter exam category" class="form-control" required></div>
+                                        <div class="form-group"><label for="time" class=" form-control-label">Time (in Minutes)</label><input type="text" id="vat" placeholder="Enter Time"  name = "time" class="form-control" required></div>
                                         <div class="form-group">
                                             <input type="submit" value="Add Exam" name="submit" class="btn btn-success">
                                         </div>
