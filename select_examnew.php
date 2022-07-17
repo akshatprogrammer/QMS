@@ -12,7 +12,7 @@ $cat = $_GET['cat'];
 ?>
 <?php
 include "connection.php";
-include "header.php";
+include "header1.php";
 ?>
 
 

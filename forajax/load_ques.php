@@ -42,7 +42,7 @@ if ($count == 0) {
     <table>
         <tr>
             <td>
-                <input type="radio" name="rl" id="rl" value="<?php echo $opt1; ?>" onclick="radioclick(this.value,<?php echo $qno; ?>)"
+                <input type="radio" name="rl" id="rl" required="required" checked value="<?php echo $opt1; ?>" onclick="radioclick(this.value,<?php echo $qno; ?>)"
                 <?php
                 if ($ans == $opt1) {
                     echo "checked";
@@ -63,7 +63,7 @@ if ($count == 0) {
         </tr>
         <tr>
             <td>
-                <input type="radio" name="rl" id="rl" value="<?php echo $opt2; ?>" onclick="radioclick(this.value,<?php echo $qno; ?>)"
+                <input type="radio" name="rl" id="rl" required="required" value="<?php echo $opt2; ?>" onclick="radioclick(this.value,<?php echo $qno; ?>)"
                 <?php
                 if ($ans == $opt2) {
                     echo "checked";
@@ -84,7 +84,7 @@ if ($count == 0) {
         </tr>
         <tr>
             <td>
-                <input type="radio" name="rl" id="rl" value="<?php echo $opt3; ?>"  onclick="radioclick(this.value,<?php echo $qno; ?>)"
+                <input type="radio" name="rl" id="rl" required="required" value="<?php echo $opt3; ?>"  onclick="radioclick(this.value,<?php echo $qno; ?>)"
                 <?php
                 if ($ans == $opt3) {
                     echo "checked";
@@ -105,7 +105,7 @@ if ($count == 0) {
         </tr>
         <tr>
             <td>
-                <input type="radio" name="rl" id="rl" value="<?php echo $opt4; ?>"  onclick="radioclick(this.value,<?php echo $qno; ?>)"
+                <input type="radio" name="rl" id="rl" required="required" value="<?php echo $opt4; ?>"  onclick="radioclick(this.value,<?php echo $qno; ?>)"
                 <?php
                 if ($ans == $opt4) {
                     echo "checked";

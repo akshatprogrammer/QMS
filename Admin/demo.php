@@ -22,7 +22,7 @@ include "header.php";
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <!-- Credit Card -->
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Tally_-_Logo.png" alt="">
                                 </div>
                         </div> <!-- .card -->   
                     </div>

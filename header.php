@@ -16,7 +16,16 @@
     <link rel="stylesheet" href="css1/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 
-
+    <style>
+        .timernew{
+            margin: auto;
+            font-size: 30px;
+            background-color: black;
+            color: white;
+            height: 50px;
+            width: 120px;
+        }
+    </style>
 </head>
 
 <body>
@@ -87,7 +96,7 @@
 
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 text-right">
                                     <ul class="breadcome-menu">
-                                        <li><div id="countdowntimer" style="display: block;"></div>
+                                        <li><div id="countdowntimer" class="timernew" style="display: block;"></div>
                                         </li>
 
                                     </ul>

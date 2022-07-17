@@ -12,8 +12,9 @@ include "header1.php";
 
     <div class="col-lg-6 col-lg-push-3" style="min-height: 500px; background-color: white;">
         <?php
-            $correct = 1;
+            $correct = 0;
             $wrong = 0;
+            $nota=0;
             if(isset($_SESSION["answer"])){
                 for($i=1;$i<sizeof($_SESSION["answer"]);$i++){
                     $answer="";
@@ -37,13 +38,14 @@ include "header1.php";
             $res = mysqli_query($link,"select * from questions where category ='$_SESSION[category]'");
             $count = mysqli_num_rows($res);
             $wrong=$count-$correct;
-
+            echo "<div class='resultshow'>";
             echo "<br>";echo "<br>";
             echo "<center>";
             echo "Total Question = ". $count; echo "<br>";
             echo "Correct Answer = ". $correct; echo "<br>";
             echo "Wrong Answer = ". $wrong; echo "<br>";
             echo "</center>";
+            echo "</div>";
         ?>
     </div>
 <?php

@@ -17,7 +17,33 @@
         } 
     window.history.forward();
 </script> -->
-
+    <style>
+        .resultshow{
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 120px;
+            border-radius: 50%;
+            padding: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 30px;
+            color: white;
+        }
+        .resultshow:hover{
+            font-size:25px;
+            color: green;
+        }
+        
+        .timernew{
+            margin: auto;
+            font-size: 30px;
+            background-color: black;
+            color: white;
+            height: 50px;
+            width: 120px;
+        }
+    </style>
     <link rel="stylesheet" href="css1/bootstrap.min.css">
     <link rel="stylesheet" href="css1/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -93,7 +119,7 @@
 
                                 <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 text-right">
                                     <ul class="breadcome-menu">
-                                        <li><div id="countdowntimer" style="display: block;"></div>
+                                        <li><div id="countdowntimer" class="timernew" style="display: block;"></div>
                                         </li>
 
                                     </ul>
