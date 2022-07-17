@@ -16,7 +16,7 @@ if(!isset($_SESSION["admin"])){
         <div class="col-sm-12">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Select Exam Category</h1>
+                    <h1>Select Quiz Category</h1>
                 </div>
             </div>
         </div>
@@ -34,16 +34,16 @@ if(!isset($_SESSION["admin"])){
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">id</th>
-                                        <th scope="col">Exam Name</th>
-                                        <th scope="col">Exam Time</th>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Quiz Name</th>
+                                        <th scope="col">Quiz Time</th>
                                         <th scope="col">Select</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $count = 0;
-                                    $res = mysqli_query($link, "select * from category");
+                                    $res = mysqli_query($link, "select * from category  where adminname='$_SESSION[admin]'");
                                     while ($row = mysqli_fetch_array($res)) {
                                         $count = $count + 1;
                                     ?>

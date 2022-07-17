@@ -38,6 +38,7 @@ if (!isset($_SESSION["admin"])) {
                                         <div class="card-body card-block">
                                             <div class="form-group"><label for="category" class=" form-control-label">Category</label><input type="text" id="company" name="category" placeholder="Enter exam category" class="form-control" required></div>
                                             <div class="form-group"><label for="time" class=" form-control-label">Time (in Minutes)</label><input type="text" id="vat" placeholder="Enter Time" name="time" class="form-control" required></div>
+                                            <div class="form-group"><label for="time" class=" form-control-label">Admin Name: </label><input type="text" id="vat" placeholder="Enter name of admin" name="admin" class="form-control" required></div>
                                             <div class="form-group">
                                                 <input type="submit" value="Add Exam" name="submit" class="btn btn-success">
                                             </div>
@@ -66,7 +67,7 @@ if (!isset($_SESSION["admin"])) {
                                                 <tbody>
                                                     <?php
                                                     $count = 0;
-                                                    $res = mysqli_query($link, "select * from category");
+                                                    $res = mysqli_query($link, "select * from category where adminname='$_SESSION[admin]'");
                                                     while ($row = mysqli_fetch_array($res)) {
                                                         $count = $count + 1;
                                                     ?>
@@ -109,13 +110,22 @@ if (!isset($_SESSION["admin"])) {
             </script>
         <?php
         } else {
-            mysqli_query($link, "insert into category values(NULL,'$_POST[category]','$_POST[time]')") or die(mysqli_error($link));
-        ?>
+            if($_POST["admin"]==$_SESSION["admin"])
+         {   mysqli_query($link, "insert into category values(NULL,'$_POST[category]','$_POST[time]','$_POST[admin]')") or die(mysqli_error($link));
+            ?>
             <script type="text/javascript">
                 alert("Exam Added Successfully");
                 window.location.href = window.location.href;
             </script>
-    <?php
+            <?php
+    }
+            else{
+                ?>
+            <script type="text/javascript">
+                alert("HEHE Wrong Admin :(");
+            </script>
+                <?php
+            }
         }
     }
     ?>

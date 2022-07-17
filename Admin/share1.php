@@ -54,7 +54,7 @@ if (!isset($_SESSION["admin"])) {
                         <div class="card-body">
                             <h1>QUIZ</h1>
                             <?php
-                            $res = mysqli_query($link,"select * from  category") or die(mysqli_error($link));
+                            $res = mysqli_query($link,"select * from  category where adminname='$_SESSION[admin]'") or die(mysqli_error($link));
                             echo "<table>";
                             while($row = mysqli_fetch_array($res)) {
                                 echo "<tr> <td>" . $row['category'] . " </td> </tr>";
@@ -66,7 +66,7 @@ if (!isset($_SESSION["admin"])) {
                                     <h1></h1>
                                     <label for="email">Enter your email:</label>
                                     <input type="email" id="email" name="email"> <br>
-                                    <!-- <label for="cat">Enter Category:</label> -->
+                                    <label for="cat"></label>
                                     Enter Category: <input type="text" id="cat" name="cat"> <br>
                                     <button type="submit" class="btn btn-primary btn-block">Send</button>
                                 </form>
