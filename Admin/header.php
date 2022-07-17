@@ -42,7 +42,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="./">
-                    QUIZ MANAGEMENT SYSTEM
+                    QUIZ Organizing SYSTEM
                 </a>
                 <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
             </div>
@@ -59,7 +59,7 @@
                         <a href="display_result.php"> <i class="menu-icon fa fa-pencil"></i>View Leaderboard </a>
                     </li>
                     <li>
-                        <a href="share.php"> <i class="menu-icon fa fa-share"></i>Share Quiz</a>
+                        <a href="share1.php"> <i class="menu-icon fa fa-share"></i>Share Quiz</a>
                     </li>
                     <li>
                         <a href="logout.php"> <i class="menu-icon fa fa-close"></i>Logout </a>

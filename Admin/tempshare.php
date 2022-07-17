@@ -2,10 +2,11 @@
 session_start();
 include "header.php";
 include "../connection.php";
+$res = mysqli_query($link, "select * from category");
 if (!isset($_SESSION["admin"])) {
 ?>
     <script>
-        window.location = "index.php";  
+        window.location = "index.php";
     </script>
 <?php
 }
@@ -25,18 +26,36 @@ if (!isset($_SESSION["admin"])) {
     </div>
     <script>
         
-        function SendEmail() {
+        function sendEmail() {
             var x = Math.floor((Math.random() * 1000) + 123);
             var temp = x;
-            var cat = document.getElementById("cat").value;
+            // var st = document.getElementById("start").value;
+            // var et = document.getElementById("end").value;
+            // var sh = st.substr(0, 2);
+            // var eh = et.substr(0, 2);
+            // var sm = st.substr(3);
+            // var em = et.substr(3);
+            // var sdate = document.getElementById("dateS").value;
+            // var edate = document.getElementById("dateE").value;
+            // var sMon = sdate.substr(5, 2);
+            // var eMon = edate.substr(5, 2);
+
+            // var sDay = sdate.substr(8, 2);
+            // var eDay = edate.substr(8, 2);
+            // const d = new date();
+            // let th = d.getHours();
+            // let tm = d.getMinutes();
+            // let tday = d.getDay();
+            // let tmonth = d.getMonth();
+
             Email.send({
                 Host: "smtp.elasticemail.com",
                 Username: "akshatvideos89@gmail.com",
                 Password: "F4A106CFB951FCEDBD36DB8EA2E8F7E640EE",
                 To: document.getElementById("email").value,
                 From: "akshatvideos89@gmail.com",
-                Subject: "UID is: "+temp + " Category is "+cat,
-                Body: "http://localhost/QMS/login.php?uid=" + temp + "&cat="+cat + "<br>" + "http://localhost/QMS/select_examnew.php?cat="+cat + " is you test link",
+                Subject: `Just messaged you from the website form`,
+                Body: "http://localhost/QMS/login.php?uid=" + temp + " <br> Your UID is " + temp + "<br>",
             }).then((success) => {
                 alert("message sent successfully. Please check the spam folder in your mail.");
             }).catch((error) => {
@@ -52,23 +71,18 @@ if (!isset($_SESSION["admin"])) {
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h1>QUIZ</h1>
-                            <?php
-                            $res = mysqli_query($link,"select * from  category") or die(mysqli_error($link));
-                            echo "<table>";
-                            while($row = mysqli_fetch_array($res)) {
-                                echo "<tr> <td>" . $row['category'] . " </td> </tr>";
-                            }
-                            echo "</table> <br> <br>";
-                            ?>
                             <div class="d-grid">
-                                <form id="form" onsubmit="SendEmail();reset(); return false;">
-                                    <h1></h1>
+                                <form method="post">
+                                    <h1>Share</h1>
                                     <label for="email">Enter your email:</label>
                                     <input type="email" id="email" name="email"> <br>
-                                    <label for="cat">Enter Category:</label>
-                                    <input type="text" id="cat" name="cat"> <br>
-                                    <button type="submit" class="btn btn-primary btn-block">Send</button>
+                                    <!-- Start Date :
+                                    <input type="date" id="dateS" min="2022-07-17" max="2022-08-15"> TIME:
+                                    <input type="text" placeholder="HH:MM" id="start" pattern="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$"> <br>
+                                    End Time :
+                                    <input type="date" id="dateE" min="2022-07-17" max="2022-08-15"> TIME:
+                                    <input type="text" placeholder="HH:MM" id="end" pattern="^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$"> <br> -->
+                                    <input type="submit" class="btn btn-primary btn-block" value="Send" onclick="sendEmail()" />
                                 </form>
                             </div>
                         </div>

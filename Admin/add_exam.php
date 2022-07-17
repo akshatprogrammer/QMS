@@ -2,12 +2,12 @@
 session_start();
 include "header.php";
 include "../connection.php";
-if(!isset($_SESSION["admin"])){
-    ?>
+if (!isset($_SESSION["admin"])) {
+?>
     <script>
         window.location = "index.php";
     </script>
-    <?php
+<?php
 }
 ?>
 <div id="right-panel" class="right-panel">
@@ -31,80 +31,94 @@ if(!isset($_SESSION["admin"])){
                 <div class="col-lg-12">
                     <div class="card">
                         <form name="form1" action="" method="post">
-                        <div class="card-body">
-                            <div class="col-lg-6">
-                                <div class="card">
-                                    <div class="card-header"><strong>Add Exam</strong></div>
-                                    <div class="card-body card-block">
-                                        <div class="form-group"><label for="category" class=" form-control-label">Category</label><input type="text" id="company" name="category" placeholder="Enter exam category" class="form-control" required></div>
-                                        <div class="form-group"><label for="time" class=" form-control-label">Time (in Minutes)</label><input type="text" id="vat" placeholder="Enter Time"  name = "time" class="form-control" required></div>
-                                        <div class="form-group">
-                                            <input type="submit" value="Add Exam" name="submit" class="btn btn-success">
+                            <div class="card-body">
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header"><strong>Add Exam</strong></div>
+                                        <div class="card-body card-block">
+                                            <div class="form-group"><label for="category" class=" form-control-label">Category</label><input type="text" id="company" name="category" placeholder="Enter exam category" class="form-control" required></div>
+                                            <div class="form-group"><label for="time" class=" form-control-label">Time (in Minutes)</label><input type="text" id="vat" placeholder="Enter Time" name="time" class="form-control" required></div>
+                                            <div class="form-group">
+                                                <input type="submit" value="Add Exam" name="submit" class="btn btn-success">
+                                            </div>
+                                            <div class="alert alert-danger" id="error" style="margin-top: 10px; display: none;">
+                                                <strong>Already! Try Editing it</strong> .
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">View Exam Category</strong>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">id</th>
-                                            <th scope="col">Exam Name</th>
-                                            <th scope="col">Exam Time</th>
-                                            <th scope="col">Edit</th>
-                                            <th scope="col">Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $count=0;
-                                            $res = mysqli_query($link,"select * from category");
-                                            while($row=mysqli_fetch_array($res)){
-                                                $count=$count+1;
-                                                ?>
-                                                <tr>
-                                                <th scope="row"><?php echo $count; ?></th>
-                                                <td><?php echo $row["category"]; ?></td>
-                                                <td><?php echo $row["time_minutes"]; ?></td>
-                                                <td><a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
-                                                <td><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
-                                            </tr>
-                                            <?php
-                                            }
+                                <div class="col-lg-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <strong class="card-title">View Exam Category</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">id</th>
+                                                        <th scope="col">Exam Name</th>
+                                                        <th scope="col">Exam Time</th>
+                                                        <th scope="col">Edit</th>
+                                                        <th scope="col">Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $count = 0;
+                                                    $res = mysqli_query($link, "select * from category");
+                                                    while ($row = mysqli_fetch_array($res)) {
+                                                        $count = $count + 1;
+                                                    ?>
+                                                        <tr>
+                                                            <th scope="row"><?php echo $count; ?></th>
+                                                            <td><?php echo $row["category"]; ?></td>
+                                                            <td><?php echo $row["time_minutes"]; ?></td>
+                                                            <td><a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
+                                                            <td><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+                                                        </tr>
+                                                    <?php
+                                                    }
 
-                                        ?>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                                    ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                         </form>
                     </div>
 
-                        </div> <!-- .card -->
-                    </div>
-                    <!--/.col-->
+                </div> <!-- .card -->
+            </div>
+            <!--/.col-->
 
-                </div><!-- .animated -->
-            </div><!-- .content -->
+        </div><!-- .animated -->
+    </div><!-- .content -->
 
-<?php
-if(isset($_POST["submit"])){
-    mysqli_query($link,"insert into category values(NULL,'$_POST[category]','$_POST[time]')") or die(mysqli_error($link));
-
-    ?>
-    <script type="text/javascript">
-        alert("Exam Added Successfully");
-        window.location.href=window.location.href;
-    </script>
     <?php
-}
-?>            
-            <?php
-            include "footer.php";
-            ?>
+    if (isset($_POST["submit"])) {
+        $count = 0;
+        $res = mysqli_query($link, "select * from category where category='$_POST[category]'");
+        $count = mysqli_num_rows($res);
+        if ($count > 0) {
+    ?>
+            <script type="text/javascript">
+                document.getElementById("error").style.display = "block";
+                document.getElementById("success").style.display = "none";
+            </script>
+        <?php
+        } else {
+            mysqli_query($link, "insert into category values(NULL,'$_POST[category]','$_POST[time]')") or die(mysqli_error($link));
+        ?>
+            <script type="text/javascript">
+                alert("Exam Added Successfully");
+                window.location.href = window.location.href;
+            </script>
+    <?php
+        }
+    }
+    ?>
+    <?php
+    include "footer.php";
+    ?>

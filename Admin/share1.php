@@ -66,8 +66,8 @@ if (!isset($_SESSION["admin"])) {
                                     <h1></h1>
                                     <label for="email">Enter your email:</label>
                                     <input type="email" id="email" name="email"> <br>
-                                    <label for="cat">Enter Category:</label>
-                                    <input type="text" id="cat" name="cat"> <br>
+                                    <!-- <label for="cat">Enter Category:</label> -->
+                                    Enter Category: <input type="text" id="cat" name="cat"> <br>
                                     <button type="submit" class="btn btn-primary btn-block">Send</button>
                                 </form>
                             </div>
