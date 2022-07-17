@@ -150,14 +150,11 @@ include "connection.php";
             <h1 class="site-header__title" data-lead-id="site-header-title"></h1>
         </header>
 
-        <div class="main-content">
+        <!-- <div class="main-content">
             <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
             <p class="main-content__body" data-lead-id="main-content-body"></p>
-        </div>
+        </div> -->
 
-        <footer class="site-footer" id="footer">
-            <p class="site-footer__fineprint" id="fineprint">Copyright ©TECH-BUZZ | All Rights Reserved</p>
-        </footer>
     </div>
 
 
@@ -178,7 +175,6 @@ include "connection.php";
         </form>
     </div>
 </body>
-
 </html>
 <?php
 if(isset($_POST["submit"])){

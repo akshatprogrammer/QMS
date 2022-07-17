@@ -48,6 +48,7 @@ while ($row = mysqli_fetch_array($res)) {
                                             <div class="form-group"><label for="category" class=" form-control-label">Option 3</label><input type="text" required id="company" name="opt3" placeholder="Enter option" class="form-control"></div>
                                             <div class="form-group"><label for="category" class=" form-control-label">Option 4</label><input type="text" required id="company" name="opt4" placeholder="Enter option" class="form-control"></div>
                                             <div class="form-group"><label for="category" class=" form-control-label">Answer</label><input type="text" required id="company" name="ans" placeholder="Enter answer" class="form-control"></div>
+                                            <div class="form-group"><label for="category" class=" form-control-label">Name of Admin</label><input type="text" required id="company" name="admin" placeholder="Enter admin name" class="form-control"></div>
                                             <div class="form-group">
                                                 <input type="submit" value="Add Question" name="submit" class="btn btn-success">
                                             </div>
@@ -93,7 +94,7 @@ while ($row = mysqli_fetch_array($res)) {
                                     <th>Delete</th>
                                 </tr>
                                 <?php
-                                $res = mysqli_query($link, "select * from questions where category='$exam_category' order by qno asc");
+                                $res = mysqli_query($link, "select * from questions where category='$exam_category' && adminname='$_SESSION[admin]' order by qno asc");
                                 while ($row = mysqli_fetch_array($res)) {
                                     echo "<tr>";
                                     echo "<td>";
@@ -183,14 +184,21 @@ while ($row = mysqli_fetch_array($res)) {
                 }
             }
             $loop = $loop + 1;
-            mysqli_query($link, "insert into questions values (NULL, '$loop', '$_POST[question]', '$_POST[opt1]', '$_POST[opt2]', '$_POST[opt3]', '$_POST[opt4]', '$_POST[ans]', '$exam_category')") or die(mysqli_error($link));
-
-        ?>
+            if($_POST['admin']==$_SESSION['admin']){
+                mysqli_query($link, "insert into questions values (NULL, '$loop', '$_POST[question]', '$_POST[opt1]', '$_POST[opt2]', '$_POST[opt3]', '$_POST[opt4]', '$_POST[ans]', '$exam_category','$_POST[admin]')") or die(mysqli_error($link));
+                ?>
             <script>
                 alert("Question Added Successfully!");
                 window.location.href = window.location.href;
             </script>
         <?php
+            }else{
+                ?>
+                <script>
+                alert("Wrong Admin");
+                </script>
+                <?php
+            }
         }
         ?>
 
