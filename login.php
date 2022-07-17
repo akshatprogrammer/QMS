@@ -60,11 +60,13 @@ if (isset($_GET['cat']))
 						<button type="submit" name="submit" class="login100-form-btn" onclick="gotoLink()">
 							Login
 						</button>
+						<button type="button" class="btn btn-info" onclick="location.href = 'guidelines/index.html'" style="margin-top: 12px;">Not Able to access quiz? Please read Info</button>
 					</div>
 					<div class="alert alert-danger" id="error" style="margin-top: 10px; display: none;">
 						<strong>Invalid!</strong> .
 					</div>
 				</form>
+				
 			</div>
 		</div>
 	</div>

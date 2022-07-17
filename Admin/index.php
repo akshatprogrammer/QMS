@@ -61,6 +61,7 @@ include "../connection.php";
                         <button class="login100-form-btn" type="submit" name="submit1">
                             Login
                         </button>
+                        <button type="button" class="btn btn-info" onclick="location.href = 'guidelines/index.html'" style="margin-top: 20px;">Please read Info before creating quiz!</button>
                     </div>
                     <div class="alert alert-danger" id="error" style="margin-top: 10px; display: none;">
                         <strong>Invalid!</strong> Username or Password.
@@ -71,6 +72,7 @@ include "../connection.php";
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
                     </div>
+                    
                 </form>
             </div>
         </div>
