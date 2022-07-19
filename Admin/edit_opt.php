@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_array($res)) {
         </div><!-- .content -->
         <?php
             if(isset($_POST["submit"])){
-                mysqli_query($link,"update questions set question='$_POST[question]',opt1='$_POST[opt1]',,opt2='$_POST[opt2]',opt3='$_POST[opt3]',opt4='$_POST[opt4]',answer='$_POST[ans]' where id = $id");
+                mysqli_query($link,"update questions set question='$_POST[question]',opt1='$_POST[opt1]',opt2='$_POST[opt2]',opt3='$_POST[opt3]',opt4='$_POST[opt4]',answer='$_POST[ans]' where id = $id");
                 ?>
                 <script>
                     window.location = "edit_question.php?id=<?php echo $id1; ?>";

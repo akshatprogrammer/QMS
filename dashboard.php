@@ -6,6 +6,12 @@ if(!isset($_SESSION["username"])){
 <script>
     window.location = "login.php";
 </script>
+<script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
 <?php
 }
 ?>

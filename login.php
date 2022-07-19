@@ -57,16 +57,15 @@ if (isset($_GET['cat']))
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 					<div class="container-login100-form-btn m-t-32">
-						<button type="submit" name="submit" class="login100-form-btn" onclick="gotoLink()">
-							Login
-						</button>
+						<input type="submit" name="submit" style="cursor: pointer;" class="login100-form-btn">
+
 						<button type="button" class="btn btn-info" onclick="location.href = 'guidelines/index.html'" style="margin-top: 12px;">Not Able to access quiz? Please read Info</button>
 					</div>
 					<div class="alert alert-danger" id="error" style="margin-top: 10px; display: none;">
 						<strong>Invalid!</strong> .
 					</div>
 				</form>
-				
+
 			</div>
 		</div>
 	</div>
@@ -94,8 +93,6 @@ if (isset($_GET['cat']))
 </body>
 
 </html>
-<script>
-</script>
 <?php
 if (isset($_POST['submit'])) {
 	$count = 0;
@@ -112,10 +109,13 @@ if (isset($_POST['submit'])) {
 		if ($id == $_POST['uid']) {
 			mysqli_query($link, "insert into students values (NULL,'$_POST[username]','$_POST[uid]')");
 			$_SESSION['username'] = $_POST['username'];
+			$_SESSION['cat'] = $cat;
 		?>
 			<script type="text/javascript">
-					window.location.href = "localhost/qms/select_examnew.php?cat="+$cat;
+				window.location.href = "select_examnew.php";
 			</script>
+			<?php
+			?>
 		<?php
 		} else {
 		?>
@@ -127,8 +127,4 @@ if (isset($_POST['submit'])) {
 		}
 	}
 }
-?>
-
-<?php
-
 ?>

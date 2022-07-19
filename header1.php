@@ -17,6 +17,9 @@
         } 
     window.history.forward();
 </script> -->
+<script>
+    window.history.forward();
+</script>
     <style>
         .resultshow{
             background-color: black;
