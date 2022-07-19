@@ -15,6 +15,11 @@ Quiz Management System (Tally Codebrewers 2022)
 6.Share the link of the quiz by mail with the unique code.<br>
 7.See the scores.<br>
 
+# Admin Flow
+![Admin Flow](https://github.com/akshatprogrammer/QMS/blob/master/flow1.PNG?raw=true)
+
+# User Flow
+![User Flow](https://github.com/akshatprogrammer/QMS/blob/master/flow2.PNG?raw=true)
 
 # Connect With Us
 <img src="https://user-images.githubusercontent.com/54896331/179391787-83182c0a-e276-4b5b-8208-f3d6050815af.jpg" width="50" height="50" align="left">LinkedIn : https://www.linkedin.com/in/akshatjaingeu/<br/>
